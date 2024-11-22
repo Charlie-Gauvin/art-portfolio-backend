@@ -397,6 +397,34 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiEmailEmail extends Struct.SingleTypeSchema {
+  collectionName: 'emails';
+  info: {
+    displayName: 'Email';
+    pluralName: 'emails';
+    singularName: 'email';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::email.email'> &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    subject: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiExhibitionExhibition extends Struct.CollectionTypeSchema {
   collectionName: 'exhibitions';
   info: {
@@ -977,6 +1005,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::email.email': ApiEmailEmail;
       'api::exhibition.exhibition': ApiExhibitionExhibition;
       'api::gallery.gallery': ApiGalleryGallery;
       'plugin::content-releases.release': PluginContentReleasesRelease;

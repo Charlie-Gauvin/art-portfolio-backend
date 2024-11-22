@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "emails",
+  "info": {
+    "singularName": "email",
+    "pluralName": "emails",
+    "displayName": "Email"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "subject": {
+      "type": "string",
+      "required": true
+    },
+    "message": {
+      "type": "text"
+    }
+  }
+}

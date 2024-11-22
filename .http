@@ -1,0 +1,9 @@
+# POST http://localhost:1337/api/contact-form/send
+# Content-Type: application/json
+
+# {
+#   "name": "John Doe",
+#   "email": "john.doe@example.com",
+#   "subject": "Problème technique",
+#   "message": "Je rencontre un problème avec votre produit."
+# }
