@@ -1,20 +1,17 @@
-import path from "path";
-
-export default ({ env }) => ({
-    // configuration for email
+module.exports = ({ env }) => ({
     email: {
-        config: {
-            provider : "sendmail",
-            providerOptions: {
-                sendmail: true,
-                newline: 'unix',
-                path: '/usr/sbin/sendmail',    
+      config: {
+        provider: 'mailgun',
+        providerOptions: {
+          key: env('MAILGUN_API_KEY'),
+          domain: env('MAILGUN_DOMAIN', 'sandboxa9c35804e79449f7ad71ceff3f0b20bd.mailgun.org'),
+          url: env('MAILGUN_URL', 'https://api.mailgun.net'),
         },
-        settings : {
-            defaultFrom: env('EMAIL_FROM', 'noreply@localhost.com'),
-            defaultReplyTo: env('EMAIL_REPLY_TO', 'contact@localhost.com'),
-            defaultTo: env('EMAIL_TO', 'gauvinch9@gmail.com'),
+        settings: {
+          defaultFrom: env('MAILGUN_FROM_EMAIL', 'trashausse@gmail.com'),
+          defaultReplyTo: env('MAILGUN_REPLY_TO_EMAIL', 'trashausse@gmail.com'),
         },
+      },
     },
-},
-});
+  });
+  

@@ -1,42 +1,25 @@
-/**
- * email controller
- */
-
 import { factories } from '@strapi/strapi';
-import nodemailer from 'nodemailer';
 
-export default factories.createCoreController('api::email.email', ({ strapi }) => ({
-  async sendEmail(ctx) {
+export default factories.createCoreController<any, any>('api::email.email', ({ strapi }) => ({
+  async send(ctx) {
     const { name, email, subject, message } = ctx.request.body;
 
-    if (!name || !email || !subject || !message) {
-      return ctx.badRequest('Tous les champs doivent être remplis.');
-    }
-
-    // Créer un transporteur pour nodemailer
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',  // Vous pouvez remplacer par un autre service comme SendGrid ou Mailgun
-      auth: {
-        user: 'votre-email@gmail.com',  // Remplacez par votre adresse e-mail
-        pass: 'votre-mot-de-passe',     // Utilisez un mot de passe d'application si nécessaire
-      },
-    });
-
-    // Options de l'email
-    const mailOptions = {
-      from: 'votre-email@gmail.com',
-      to: 'monmailperso@gmail.com', // L'adresse email où vous souhaitez recevoir les messages
-      subject: `Nouveau message de ${name} - ${subject}`,
-      html: `<p>Nom: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
-    };
-
     try {
-      const info = await transporter.sendMail(mailOptions);
-      console.log('Email envoyé:', info.response);
-      return ctx.send('Message envoyé avec succès!');
-    } catch (error) {
-      console.error('Erreur d\'envoi d\'email:', error);
-      return ctx.internalServerError('Erreur lors de l\'envoi du message.');
+      await strapi.service('api::email.email').send(
+        'trashausse@gmail.com',
+        `Nouveau message de contact: ${subject}`,
+        `
+          <h2>Nouveau message de contact</h2>
+          <p><strong>Nom:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Sujet:</strong> ${subject}</p>
+          <p><strong>Message:</strong> ${message}</p>
+        `
+      );
+
+      ctx.send({ message: 'Formulaire soumis avec succès' });
+    } catch (err) {
+      ctx.throw(500, err);
     }
   },
 }));
