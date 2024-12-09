@@ -4,5 +4,9 @@ export default ({ env }) => ({
   app: {
     keys: env.array('APP_KEYS'),
   },
-  websockets: false,
+  transfer: {
+    remote: {
+      enabled: true  // Assurez-vous que cette valeur est à true
+    }
+  },
 });
