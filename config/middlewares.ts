@@ -5,10 +5,10 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      enabled: true,
-      origin: [process.env.URL_PRODUCTION, 'http://localhost:3000'],
+      origin: [process.env.URL_PRODUCTION],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+      keepHeaderOnError: true,
     },
   },
   "strapi::poweredBy",
