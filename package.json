@@ -7,7 +7,7 @@
     "build": "strapi build",
     "deploy": "strapi deploy",
     "develop": "strapi develop",
-    "start": "strapi start",
+    "start": "mkdir -p /data/uploads && strapi start",
     "strapi": "strapi"
   },
   "dependencies": {

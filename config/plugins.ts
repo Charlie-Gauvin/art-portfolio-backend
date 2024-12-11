@@ -21,9 +21,10 @@ export default ({ env }) => ({
     },
   },
   upload: {
-    provider: 'local',  // Utilisation du stockage local
-    providerOptions: {
-      uploadDir: '/data/uploads', // Le chemin du disque persistant de Render
+    config: {
+      provider: 'local',
+      // Assurez-vous que ce chemin correspond au point de montage de votre disque persistant
+      folder: '/data/uploads',
     },
   },
 });
