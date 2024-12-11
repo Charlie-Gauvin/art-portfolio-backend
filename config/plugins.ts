@@ -24,7 +24,7 @@ export default ({ env }) => ({
     config: {
       provider: 'local', // Utilisation du stockage local
       providerOptions: {
-        sizeLimit: 1000000, // Limite de taille en octets (optionnel)
+        sizeLimit: 100000000, // Limite de taille en octets (optionnel)
       },
       actionOptions: {
         upload: {},
