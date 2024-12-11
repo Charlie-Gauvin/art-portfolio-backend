@@ -21,16 +21,9 @@ export default ({ env }) => ({
     },
   },
   upload: {
-    config: {
-      provider: 'local', // Utilisation du stockage local
-      providerOptions: {
-        sizeLimit: 100000000, // Limite de taille en octets (optionnel)
-      },
-      actionOptions: {
-        upload: {},
-        delete: {},
-      },
+    provider: 'local',  // Utilisation du stockage local
+    providerOptions: {
+      uploadDir: '/data/uploads', // Le chemin du disque persistant de Render
     },
-    path: '/data/uploads', // Utilise le chemin du volume persistant
   },
 });
