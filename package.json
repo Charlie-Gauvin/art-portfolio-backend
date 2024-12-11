@@ -8,7 +8,7 @@
     "deploy": "strapi deploy",
     "develop": "strapi develop",
     "start": "strapi start",
-    "strapi": "mkdir -p /data/uploads && strapi"
+    "strapi": "strapi"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.2.0",
