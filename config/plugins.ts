@@ -20,4 +20,17 @@ export default ({ env }) => ({
       },
     },
   },
+  upload: {
+    config: {
+      provider: 'local', // Utilisation du stockage local
+      providerOptions: {
+        sizeLimit: 1000000, // Limite de taille en octets (optionnel)
+      },
+      actionOptions: {
+        upload: {},
+        delete: {},
+      },
+    },
+    path: '/data/uploads', // Utilise le chemin du volume persistant
+  },
 });
