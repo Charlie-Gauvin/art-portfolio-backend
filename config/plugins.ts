@@ -12,10 +12,9 @@ export default ({ env }) => ({
         },
       },
       settings: {
-        defaultFrom: env("EMAIL_DEFAULT_FROM", "julien.medina16@gmail.com"),
+        defaultFrom: env("EMAIL_DEFAULT_FROM"),
         defaultReplyTo: env(
           "EMAIL_DEFAULT_REPLY_TO",
-          "julien.medina16@gmail.com"
         ),
       },
     },
