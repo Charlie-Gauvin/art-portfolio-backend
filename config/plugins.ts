@@ -24,7 +24,7 @@ export default ({ env }) => ({
     config: {
       provider: 'local',
       // Assurez-vous que ce chemin correspond au point de montage de votre disque persistant
-      folder: '/home/charlie/Projet-pro/Projet-PG/art-portfolio-backend/public/uploads',
+      folder: '/opt/render/project/src/public/uploads',
     },
   },
 });
