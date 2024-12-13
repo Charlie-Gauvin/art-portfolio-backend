@@ -12,6 +12,14 @@ export default factories.createCoreController(
           return ctx.badRequest("Tous les champs sont requis.");
         }
 
+        // Ajout Regex Email
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        // Validation de l'email
+        if (!emailRegex.test(email)) {
+          return ctx.badRequest("Email invalide.");
+        }
+
         // Utiliser le service email de Strapi pour envoyer l'email
         await strapi
           .plugin("email")
