@@ -15,7 +15,8 @@
     "Title": {
       "type": "string",
       "required": true,
-      "unique": false
+      "unique": false,
+      "maxLength": 50
     },
     "BeginDate": {
       "type": "date",
