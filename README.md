@@ -1,61 +1,53 @@
-# 🚀 Getting started with Strapi
+# 🎨 Galerie D'art en ligne
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+Ce projet est une plateforme de galerie d'art en ligne créée dans le cadre d'un travail en duo. Le site permet à l'artiste peintre de présenter ses œuvres, de gérer ses expositions à venir et passées. L'ensemble du projet a été développé en utilisant Next.js, Strapi, Tailwind CSS.
 
-### `develop`
+## 📋 Description du projet
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+L'objectif principal de ce projet est de créer une galerie d'art en ligne permettant à un artiste peintre de présenter ses œuvres (toiles), qu'elles soient disponibles à la vente ou déjà vendues. Le site comprend également une gestion des expositions à venir et passées, ainsi qu'une page "À propos" de l'artiste. Les visiteurs peuvent aussi prendre contact via un formulaire de contact.
 
-```
-npm run develop
-# or
-yarn develop
-```
+Fonctionnalités principales :
 
-### `start`
+- **Galerie d'Art** : Affichage des œuvres de l'artiste, avec distinction entre les œuvres disponibles et celles déjà vendues.
+- **Expositions** : Gestion des expositions à venir et passées se fait de façon automatique.
+- **Formulaire de contact** : Permet aux utilisateurs de contacter l'artiste, avec un envoi sécurisé via Nodemailer et une protection contre les failles XSS.
+- **Admin Strapi** : Gestion complète du site via une interface admin avec Strapi. Après une formation rapide, le client peut mettre à jour les œuvres, les expositions et la page "À propos".
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+## 🛠️ Technologies et outils utilisés
 
-```
-npm run start
-# or
-yarn start
-```
+- **TypeScript** : Utilisé pour le typage statique et la sécurité du code.
+- **Tailwind CSS** : Framework CSS utilitaire pour un design rapide et réactif.
+- **Next.js** : Framework React pour le rendu côté serveur et la génération de sites statiques.
+- **Strapi** : Headless CMS pour gérer le contenu du site, comme les œuvres et les expositions.
+- **Nodemailer** : Pour l'envoi sécurisé d'e-mails depuis le formulaire de contact.
+- **Vercel & Render** : Plateformes d'hébergement pour le déploiement de l'application Next.js et Strapi.
+- **SEO Optimization** : Optimisation SEO pour assurer une bonne visibilité sur les moteurs de recherche.
+- **PostgreSQL** : Base de données pour gérer les données utilisateurs et les œuvres d'art.
 
-### `build`
+## 🔐 Sécurité
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+Le projet inclut plusieurs mesures de sécurité pour assurer la protection des données utilisateurs et du contenu du site :
 
-```
-npm run build
-# or
-yarn build
-```
+- **CORS** : Configuration des politiques de contrôle d'accès pour sécuriser les échanges entre le front-end et le back-end.
+- **dotenv** : Gestion des variables d'environnement pour garder les informations sensibles comme les clés API en sécurité.
 
-## ⚙️ Deployment
+## 📂 Architecture du projet
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+L'architecture du projet est divisée de manière claire pour faciliter le développement et la gestion :
 
-```
-yarn strapi deploy
-```
+- **Frontend (Next.js)** :
+  - pages/ : Contient toutes les pages (Routes) du site, y compris la page d'accueil, galerie, expositions, à propos et contact.
+  - components/ : Composants réutilisables comme les cartes d'œuvres, les cartes d'expositions.
 
-## 📚 Learn more
+- **Backend (Strapi)** :
+  - Content Types : Expositions, Œuvres, Contact, A propos, Utilisateurs.
+  - Controllers : Gère la logique métier de chaque modèle.
+  - Routes : Définit les points de terminaison pour récupérer ou envoyer des données vers le front-end.
+  - Admin Panel : Interface utilisateur pour la gestion du contenu, accessible par l'artiste après une formation rapide.
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+## 🚀 Déploiement
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+Le site est déployé en ligne avec :
 
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+- Vercel pour le déploiement du frontend (Next.js).
+- Render pour le déploiement de l'admin (Strapi) et de la base de données PostgreSQL, assurant ainsi la gestion du contenu à distance.
